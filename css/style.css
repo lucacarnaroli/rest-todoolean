@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+.elemento {
+  position: relative;
+}
+.box-elim {
+  margin: 20px;
+}
+#elimina {
+  position: absolute;
+  border: 1px solid black;
+  left: 200px;
+  top: 0px;
+  padding: 2px;
+}
+#elimina:hover {
+  background-color: red;
+  cursor: pointer;
+}
+.box {
+  margin: 30px;
+  text-align: center;
+}
+.lista {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+#input {
+  padding: 3px;
+}
+.input-up {
+  padding: 4px;
+  margin-right: 5px;
+}

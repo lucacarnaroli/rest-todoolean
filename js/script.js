@@ -20,17 +20,43 @@ $(document).ready(function() {
         alert('error');
       }
     })
+  });
+  $('#input').keypress(function() {
+    if (event.which == 13) {
+      var text = $('#input').val();
+      $.ajax({
+        url: 'http://157.230.17.132:3007/todos',
+        method: 'POST',
+        data: {
+          text: text,
+        },
+        success: function(data) {
+          console.log('invio effettuato');
+          $('.lista').html('');
+          $('#input').val('');
+          getAll();
+        },
+        error: function(error) {
+          alert('error');
+        }
+      })
+    }
   })
-  $(document).on('click','#elimina',function() {
+  $(document).on('click','.box-elim',function() {
     var elimButton = $(this);
     var idList = elimButton.parent().attr('attr-id');
-    console.log(idList);
+
     getDelete(idList);
   }
   );
+  // $(document).on('click','.input-up', function() {
+  //   $(this).val('');
+  //
+  // })
 });
 
-
+// ----------------------------------
+// CRUD - READE
 function getAll() {
   $.ajax({
     url: 'http://157.230.17.132:3007/todos',
@@ -74,17 +100,25 @@ function getDelete(id) {
   })
 }
 
-function getUpdate() {
-  $.ajax({
-    url: 'http://157.230.17.132:3007/todos/'+ id,
-    method: 'PUT',
-    success: function(data) {
-      console.log('aggiornato');
-      $('.lista').html('');
-      getAll();
-    },
-    error: function(error) {
-      alert('error');
-    }
-  })
-}
+// function getUpdate(id,newText) {
+//   $.ajax({
+//     url: 'http://157.230.17.132:3007/todos/'+ id,
+//     method: 'PUT',
+//     data: {
+//       text: newText,
+//     },
+//     success: function(data) {
+//       console.log('aggiornato');
+//       c
+//       getAll();
+//       for (var i = 0; i < data.length; i++) {
+//         var newText = data[i];
+//         console.log(newText);
+//       }
+//
+//     },
+//     error: function(error) {
+//       alert('error');
+//     }
+//   })
+// }
