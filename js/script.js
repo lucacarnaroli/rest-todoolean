@@ -73,3 +73,18 @@ function getDelete(id) {
     }
   })
 }
+
+function getUpdate() {
+  $.ajax({
+    url: 'http://157.230.17.132:3007/todos/'+ id,
+    method: 'PUT',
+    success: function(data) {
+      console.log('aggiornato');
+      $('.lista').html('');
+      getAll();
+    },
+    error: function(error) {
+      alert('error');
+    }
+  })
+}
