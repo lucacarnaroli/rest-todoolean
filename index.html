@@ -9,14 +9,15 @@
   <body>
     <input id="input" type="text" name="" value="">
     <button id="button" type="button" name="button">Salva</button>
-    <ul class="lista">
+    <ol class="lista">
 
-    </ul>
+    </ol>
 
 
     <script id="entry-template" type="text/x-handlebars-template">
-    <li class="elemento">
+    <li class="elemento" attr-id="{{id}}">
       {{text}};
+      <div id="elimina">Elimina</div>
     </li>
 
     </script>
