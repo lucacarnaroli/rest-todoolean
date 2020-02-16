@@ -3,6 +3,10 @@ $(document).ready(function() {
   getAll();
   $('#button').click(function() {
     var text = $('#input').val();
+    if (text.length == 0) {
+      alert('Inserisci il testo');
+      return
+    };
     // CRUD- CREATE
     $.ajax({
       url: 'http://157.230.17.132:3007/todos',
@@ -24,6 +28,10 @@ $(document).ready(function() {
   $('#input').keypress(function() {
     if (event.which == 13) {
       var text = $('#input').val();
+      if (text.length == 0) {
+        alert('Inserisci il testo')
+        return
+      };
       $.ajax({
         url: 'http://157.230.17.132:3007/todos',
         method: 'POST',
@@ -40,20 +48,32 @@ $(document).ready(function() {
           alert('error');
         }
       })
-    }
+    };
   })
   $(document).on('click','.box-elim',function() {
     var elimButton = $(this);
     var idList = elimButton.parent().attr('attr-id');
-
     getDelete(idList);
   }
   );
-  // $(document).on('click','.input-up', function() {
-  //   $(this).val('');
-  //
-  // })
+  $(document).on('click','.text-input', function() {
+    $('.text-input').removeClass('hidden');
+    $('.input-up').addClass('hidden');
+    $(this).addClass('hidden');
+    $(this).siblings('.input-up').removeClass('hidden').val('');
+  });
+
+  $(document).on('keypress','.input-up',function() {
+    var idUp = $(this).parent('li').attr('attr-id');
+    var text = $(this).val();
+
+    if (event.which == 13) {
+      getUpdate(idUp,text);
+    }
+  })
 });
+
+
 
 // ----------------------------------
 // CRUD - READE
@@ -100,25 +120,20 @@ function getDelete(id) {
   })
 }
 
-// function getUpdate(id,newText) {
-//   $.ajax({
-//     url: 'http://157.230.17.132:3007/todos/'+ id,
-//     method: 'PUT',
-//     data: {
-//       text: newText,
-//     },
-//     success: function(data) {
-//       console.log('aggiornato');
-//       c
-//       getAll();
-//       for (var i = 0; i < data.length; i++) {
-//         var newText = data[i];
-//         console.log(newText);
-//       }
-//
-//     },
-//     error: function(error) {
-//       alert('error');
-//     }
-//   })
-// }
+function getUpdate(id,newText) {
+  $.ajax({
+    url: 'http://157.230.17.132:3007/todos/'+ id,
+    method: 'PUT',
+    data: {
+      text: newText,
+    },
+    success: function(data) {
+      console.log('invio update effettuato');
+      $('.lista').html('');
+      getAll();
+    },
+    error: function(error) {
+      alert('error');
+    }
+  })
+}

@@ -3,27 +3,37 @@
   <head>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js" integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <title></title>
   </head>
   <body>
+
+    <div class="title-box">
+      <i class="fas fa-th-list icon"></i>
+      <h2 class="title">Todo List</h2>
+    </div>
+
     <div class="box">
       <input id="input" type="text" name="" value="">
-      <button id="button" type="button" name="button">Aggiungi</button>
+      <button id="button" type="button" name="button">Add</button>
     </div>
     <ol class="lista">
+
 
     </ol>
 
 
     <script id="entry-template" type="text/x-handlebars-template">
-    <li class="elemento" attr-id="{{id}}">
-       <input class="input-up active"type="text" value="{{text}}"> <button id="update" type="button" name="button">Modifica</button>
-      <div class="box-elim">
-        <div id="elimina">x</div>
-      </div>
-    </li>
+
+      <li class="elemento" attr-id="{{id}}">
+        <span class="text-input">{{text}}</span>
+        <input class="input-up hidden" type="text" value="{{text}}">
+        <div class="box-elim">
+          <div id="elimina">x</div>
+        </div>
+      </li>
 
     </script>
 

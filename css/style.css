@@ -4,18 +4,61 @@
   margin: 0;
   font-family: sans-serif;
 }
+body {
+  background-color: black
+}
+.title-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 30px;
+}
+.title{
+  color: white;
+  font-size: 40px;
+  margin-left: 15px;
+}
+.icon {
+  color: white;
+  font-size: 35px;
+  margin-top: 5px;
+  color: rgb(5, 122, 245);
+}
 .elemento {
   position: relative;
+  width: 100px;
+  word-wrap: break-word;
+  height: 60px;
+  width: 250px;
+  margin: 10px;
+  border: 1px solid rgb(223, 223, 223);
+  background-color: #fff;
+  border-radius: 3px;
+}
+.elemento:hover {
+  box-shadow: 0px 8px 8px rgba(46, 45, 45, 0.75);
+  margin: 12px;
+}
+.text-input{
+  font-size: 18px;
+  line-height: 55px;
+  padding: 10px;
+  cursor: pointer;
+}
+.input-up {
+  margin-top: 20px;
+  margin-left: 10px;
 }
 .box-elim {
-  margin: 20px;
+  margin-bottom: 20px;
 }
 #elimina {
   position: absolute;
-  border: 1px solid black;
+  border: 1px solid rgba(223, 223, 220,0.5);
   left: 200px;
-  top: 0px;
-  padding: 2px;
+  top: 15px;
+  padding: 4px;
+  border-radius: 3px;
 }
 #elimina:hover {
   background-color: red;
@@ -26,17 +69,36 @@
   text-align: center;
 }
 .lista {
-  margin: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  font-size: 20px;
+  list-style: none;
+  margin: auto;
+  border: 1px solid black;
+  height: auto;
+  width: 320px;
+  /* background-color: rgba(32, 255, 141); */
+  background-color: rgb(5, 122, 245);
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  padding: 30px;
 }
+.hidden {
+  display: none;
+}
+
 #input {
-  padding: 3px;
+  padding: 8px;
+  width: 200px;
+  border-radius: 3px;
+  box-shadow: 1px 1px black;
+  font-size: 16px;
 }
-.input-up {
-  padding: 4px;
-  margin-right: 5px;
+#button {
+  margin-left: 10px;
+  padding: 9px;
+  border-radius: 3px;
+}
+#button:hover {
+  background-color: lightgrey;
 }
